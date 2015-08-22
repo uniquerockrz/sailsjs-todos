@@ -7,8 +7,24 @@
 
 module.exports = {
 
+  schema: true,
+
   attributes: {
 
+    name: {
+      type: 'String',
+      required: true
+    },
+
+    description: {
+      type: 'String'
+    },
+
+    done: {
+      type: 'Boolean',
+      required: true
+    }
+  
   }
 };
 
