@@ -7,5 +7,18 @@
 
 module.exports = {
 	
+  'index': function(req, res){
+    Todos.find().exec(function(err, todos){
+      if(err){
+        next(err);
+      }
+      else{
+        res.view({
+          todos: todos
+        });
+      }
+    });
+  }
+
 };
 
