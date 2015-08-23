@@ -24,5 +24,17 @@ module.exports = {
     res.view();
   },
 
+  'create': function(req, res){
+    Todos.create(req.params.all()).exec(function(err, todo){
+      if(err){
+        req.session.err = err;
+        res.redirect('/todos/add');
+      }
+      else{
+        res.redirect('/todos');
+      }
+    });
+  }
+
 };
 
