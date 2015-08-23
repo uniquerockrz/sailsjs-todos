@@ -2,6 +2,14 @@
 	<div class="col-md-4 col-md-offset-2">
 		<h1>Add a Todo</h1>
 
+		<% if(error!=null){ %>
+			<p class="bg-danger">
+			<% for(err in error.invalidAttributes){ %>
+				<%= err %> : <%= JSON.stringify(error.invalidAttributes[err][0].rule) %> <br />
+			<% } %>
+			</p>
+		<% } %>
+
 		<form action="/todos/create">
   			<div class="form-group">
     			<label>Name</label>

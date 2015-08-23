@@ -21,7 +21,17 @@ module.exports = {
   },
 
   'add': function(req, res){
-    res.view();
+    if(req.session.err){
+      res.view({
+        error: req.session.err
+      });
+      req.session.err = null;
+    }
+    else{
+      res.view({
+        error: null
+      });
+    }
   },
 
   'create': function(req, res){
