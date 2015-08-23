@@ -1,5 +1,46 @@
 <div class="row">
 	<div class="col-md-12">
-		<h1>Todos List</h1>	
+		<h1>Todos List</h1> 
+
+		<% if(todos.length>0){ %>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<td>Name</td>
+					<td>Desciption</td>
+					<td>Done</td>
+					<td>View</td>
+					<td>Edit</td>
+					<td>Mark As Done</td>
+					<td>Delete</td>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% todos.forEach(function(todo){ %>
+				<tr>
+					<td><%= todo.name %></td>
+					<td><%= todo.description %></td>
+					<td>
+						<% if(todo.done==true){ %>
+							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+						<% } else{ %>
+							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+						<% } %>
+					</td>
+					<td><a class="btn btn-primary">View</a></td>
+					<td><a class="btn btn-default">Edit</a></td>
+					<td><a class="btn btn-success">Mark As Done</a></td>
+					<td><a class="btn btn-danger">Delete</a></td>
+				</tr>
+				<% }); %>
+			</tbody>
+		</table>
+		<% } else{ %>
+			<h4>There are no todos, why not add one!</h4>
+		<% } %>
+
+		<a class="btn btn-success" href="todos/add">Add</a>
+
 	</div>
 </div>
