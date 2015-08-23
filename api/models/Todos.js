@@ -25,6 +25,11 @@ module.exports = {
       required: true
     }
   
+  },
+
+  beforeValidate: function(values, next){
+    values.done = false;
+    next();
   }
 };
 
